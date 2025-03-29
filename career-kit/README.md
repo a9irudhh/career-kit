@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Career Kit Directory Structure Explanation
 
-## Getting Started
+The Career Kit project follows a modern Next.js application structure with the App Router pattern. Here's a detailed breakdown of how the project is organized:
 
-First, run the development server:
+## Top-Level Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+career-kit/
+├── public/                 # Static assets (images, fonts, etc.)
+├── src/                    # Source code
+├── .env.local              # Environment variables (not committed to git)
+├── next.config.js          # Next.js configuration 
+├── package.json            # Dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+└── README.md               # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Source Code (src)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The src directory contains all the application code, organized as follows:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### App Directory (app)
 
-## Learn More
+This uses Next.js 13+ App Router pattern:
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/app/
+├── (auth)/                 # Authentication routes (login, register, etc.)
+│   ├── auth/               # Auth pages
+│   │   ├── login/
+│   │   ├── register/
+│   │   └── ...
+├── (community)/            # Community forum routes
+│   ├── community/          # Community pages
+│   │   ├── page.tsx        # Main community page (forum listing)
+│   │   ├── post/           # Post-related pages
+│   │   │   ├── [id]/       # Dynamic route for individual posts
+│   │   │   └── create/     # Create new post page
+│   │   └── edit/           # Edit post page
+├── api/                    # API route handlers (backend)
+│   ├── auth/               # Authentication API routes
+│   │   ├── login/
+│   │   ├── register/
+│   │   └── user/
+│   ├── post/               # Post-related API endpoints
+│   │   ├── all/
+│   │   ├── one/
+│   │   ├── create/
+│   │   ├── edit/
+│   │   └── like/
+│   ├── comment/            # Comment-related API endpoints
+│   └── ...
+├── page.tsx                # Home page
+├── layout.tsx              # Root layout
+└── ...                     # Other feature routes (resume, jobs, etc.)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Components (components)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Reusable UI components:
 
-## Deploy on Vercel
+```
+src/components/
+├── shared/                 # Shared components used across features
+│   ├── PostCard.tsx        # Card component for forum posts
+│   ├── CommentList.tsx     # List of comments
+│   ├── CommentForm.tsx     # Form for creating/editing comments
+│   └── ...
+├── ui/                     # Shadcn UI components (buttons, cards, etc.)
+│   ├── button.tsx
+│   ├── card.tsx
+│   ├── input.tsx
+│   ├── badge.tsx
+│   └── ...
+└── ...                     # Feature-specific components
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Utility Functions (lib)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Helper functions and configurations:
+
+```
+src/lib/
+├── auth.ts                 # Authentication configuration
+├── db.ts                   # Database connection logic
+├── utils.ts                # General utility functions
+└── ...                     # Other utilities
+```
+
+### Type Definitions (`src/types/`)
+
+TypeScript interfaces and types:
+
+```
+src/types/
+├── post.ts                 # Post-related types
+├── user.ts                 # User-related types
+├── comment.ts              # Comment-related types
+└── ...                     # Other type definitions
+```
+
+## Key Architectural Points
+
+1. **Route Groups**: Parentheses in folder names like `(auth)` and `(community)` are Next.js route groups that organize related routes without affecting the URL structure.
+
+2. **API Routes**: The `api` directory contains all backend functionality, structured to mirror the frontend routes.
+
+3. **Component Organization**: Components are divided between shared (used across features) and UI (basic building blocks).
+
+4. **Dynamic Routes**: Square brackets in folder names like `[id]` indicate dynamic routes where the parameter changes (e.g., individual post pages).
+
+5. **Library Code**: The `lib` directory contains reusable code that isn't React components but provides functionality to the application.
+
+This structure follows modern Next.js best practices with a clear separation of concerns between the frontend UI, backend API routes, and shared utilities.
