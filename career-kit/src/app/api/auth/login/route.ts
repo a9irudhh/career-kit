@@ -5,19 +5,13 @@ import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
 
+import { connectToMongoDb } from '@/db/dbConnect';
+
 export async function POST(req: Request) {
     try {
         const { email, password } = await req.json();
 
-        // Connect to MongoDB
-        if (!process.env.MONGODB_URI) {
-            return NextResponse.json(
-                { message: 'MongoDB URI is not defined' },
-                { status: 500 }
-            );
-        }
-
-        await mongoose.connect(process.env.MONGODB_URI);
+        await connectToMongoDb();
 
         // Find user by email
         const user = await UserModel.findOne({ email });

@@ -1,9 +1,9 @@
-import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Remove the fs import that's causing the Node.js compatibility error
 // import fs from "node:fs"; 
 
-const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
@@ -38,7 +38,7 @@ const chatSession = model.startChat({
     ],
 });
 
-export async function GenerateQuestion(topic) {
+export async function GenerateQuestion(topic : string) {
     try {
         const Prompt = `Generate a coding problem about ${topic}. 
         Include the following:
