@@ -55,7 +55,7 @@ Below are some snapshots showcasing the Career Kit platform:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/career-kit.git
+   git clone https://github.com/a9irudhh/career-kit.git
    cd career-kit
    ```
 
