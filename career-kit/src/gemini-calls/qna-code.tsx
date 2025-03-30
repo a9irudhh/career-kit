@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Remove the fs import that's causing the Node.js compatibility error
 // import fs from "node:fs"; 

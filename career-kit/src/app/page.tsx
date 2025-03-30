@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ChevronRight, Code, FileText, Search, MessageSquare, BookOpen,
-  Map, Sparkles, ArrowRight, CheckCircle, Trophy, Users, Briefcase,
+  Code, FileText, Search, MessageSquare, BookOpen,
+  Map, Sparkles, ArrowRight, Trophy, Users, Briefcase,
   Layers, Zap, Star, BarChart
 } from "lucide-react";
 
@@ -78,7 +78,23 @@ export default function HomePage() {
       icon: <Map className="h-10 w-10 text-primary" />,
       link: "/roadmap",
       color: "bg-gradient-to-br from-cyan-50 to-sky-50 border-cyan-200"
-    }
+    },
+    {
+      title: "Community Forum",
+      description: "Join our community of job seekers and professionals to share experiences and tips.",
+      icon: <Users className="h-10 w-10 text-primary" />,
+      link: "/forum",
+      color: "bg-gradient-to-br from-teal-50 to-lime-50 border-teal-200"
+    },
+    {
+      title: "Current Job Trends",
+      description: "Stay updated with the latest trends in the job market and skills in demand.",
+      icon: <Briefcase className="h-10 w-10 text-primary" />,
+      link: "/trends",
+      color: "bg-gradient-to-br from-gray-50 to-slate-50 border-gray-200"
+
+    },
+
   ];
 
   const benefits = [
@@ -91,7 +107,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section - Enhanced with more visual elements and clearer value prop */}
-      <section className="w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+      <section className="w-full pt-8 pb-16 md:pt-32 md:pb-24 lg:pt-8 lg:pb-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto">
           {/* Top badge */}
           <motion.div
@@ -102,7 +118,7 @@ export default function HomePage() {
           >
             <Badge variant="outline" className="py-1.5 px-4 bg-white text-primary border-primary/20 rounded-full font-medium text-sm shadow-sm">
               <Sparkles className="h-3.5 w-3.5 mr-2" />
-              The ultimate platform for tech career growth
+              Careeer Kit
             </Badge>
           </motion.div>
 

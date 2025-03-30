@@ -1,6 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
 
-// Prevent duplicate model compilation
 const UserModel = mongoose.models.User || mongoose.model('User', new Schema({
   username: {
     type: String,

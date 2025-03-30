@@ -1,21 +1,15 @@
 import { NextResponse } from 'next/server';
-import mongoose from 'mongoose';
 import UserModel from '@/db/models/User';
 import bcrypt from 'bcrypt';
+import { connectToMongoDb } from '@/db/dbConnect';
 
 export async function POST(req: Request) {
     try {
         const { username, email, password } = await req.json();
 
-        // Connect to MongoDB
-        if (!process.env.MONGODB_URI) {
-            return NextResponse.json(
-                { message: 'MongoDB URI is not defined' },
-                { status: 500 }
-            );
-        }
+        connectToMongoDb();
 
-        await mongoose.connect(process.env.MONGODB_URI);
+
 
         // Check if user already exists
         const existingUser = await UserModel.findOne({

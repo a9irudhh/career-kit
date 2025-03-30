@@ -74,7 +74,7 @@ export function RegisterForm() {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 ">
                 <FormField
                     control={form.control}
                     name="username"
@@ -82,7 +82,7 @@ export function RegisterForm() {
                         <FormItem>
                             <FormLabel>Username</FormLabel>
                             <FormControl>
-                                <Input placeholder="johndoe" {...field} />
+                                <Input placeholder="Enter your Username" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -96,7 +96,7 @@ export function RegisterForm() {
                         <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input type="email" placeholder="john.doe@example.com" {...field} />
+                                <Input type="email" placeholder="Enter your Email" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -110,7 +110,7 @@ export function RegisterForm() {
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input type="password" placeholder="••••••••" {...field} />
+                                <Input type="password" placeholder="Enter your password" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>

@@ -80,7 +80,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
                         <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input type="email" placeholder="your.email@example.com" {...field} />
+                                <Input type="email" placeholder="Enter your Email" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -94,7 +94,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input type="password" placeholder="••••••••" {...field} />
+                                <Input type="password" placeholder="Enter your Password" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
