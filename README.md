@@ -48,6 +48,12 @@ Below are some snapshots showcasing the Career Kit platform:
 
 ![Post Creation](images/image(3).png)
 
+## Career Roadmap Generator
+
+![Career Roadmap](images/image(4).png)
+
+![Career Roadmap](images/image(5).png)
+
 
 
 
