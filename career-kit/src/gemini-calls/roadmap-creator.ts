@@ -1,40 +1,4 @@
 
-const prompt = `
-Create a detailed career roadmap for someone pursuing a role as a [JOB TITLE] who is currently at a [BEGINNER/INTERMEDIATE/ADVANCED] level. 
-
-Please format the entire response using HTML tags with inline CSS styling that makes it visually appealing, organized, and ready to be rendered in a web application.
-
-Structure the roadmap with the following sections:
-
-1. **Career Path Overview**: A high-level summary of the [JOB TITLE] career path with progression milestones.
-
-2. **Skills Development Roadmap**: Organize this as a timeline with 3-5 stages. For each stage:
-   - Timeline point (0-6 months, 6-12 months, etc.)
-   - Required technical skills to develop
-   - Required soft skills to develop
-   - Projects/deliverables to build at this stage
-   - Resources for learning (courses, books, tutorials)
-
-3. **Key Technologies**: Create a visually distinctive section showing the essential technologies/tools to master, with icons if possible.
-
-4. **Industry Certifications**: List relevant certifications with difficulty level, estimated preparation time, and importance rating.
-
-5. **Learning Resources**: Organized by category (Books, Online Courses, YouTube Channels, Communities) with brief descriptions.
-
-Format your response with appealing HTML and CSS that includes:
-- A modern color scheme with primary color #3b82f6 (blue)
-- Responsive design principles
-- Visual elements like progress bars, cards, and icons
-- Clear typography with headings
-- Sections with appropriate padding and margins
-- Bulletpoints where appropriate
-
-Make the roadmap realistic, challenging but achievable, and include specific actionable advice. Include insights about industry trends, salary expectations at different stages, and common challenges people face.
-
-The output should be complete HTML that can be directly inserted into a web application and render beautifully without additional styling.
-
-
-`
 
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -135,7 +99,7 @@ export async function generateCareerRoadmap(jobTitle: string, level: string, tim
     `;
 
     try {
-        const result = await model.generateContent(prompt);
+        const result = await chatSession.sendMessage(prompt)
         const response = await result.response;
         let text = response.text();
 
