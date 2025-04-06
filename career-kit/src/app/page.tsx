@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import {
   Code, FileText, Search, MessageSquare, BookOpen,
   Map, Sparkles, ArrowRight, Trophy, Users, Briefcase,
-  Layers, Zap, Star, BarChart
+  Zap, Star, BarChart
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -106,185 +106,111 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section - Enhanced with more visual elements and clearer value prop */}
-      <section className="w-full pt-8 pb-16 md:pt-32 md:pb-24 lg:pt-8 lg:pb-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
-        <div className="container px-4 md:px-6 mx-auto">
-          {/* Top badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center mb-8"
-          >
-            <Badge variant="outline" className="py-1.5 px-4 bg-white text-primary border-primary/20 rounded-full font-medium text-sm shadow-sm">
-              <Sparkles className="h-3.5 w-3.5 mr-2" />
-              Careeer Kit
-            </Badge>
-          </motion.div>
+   
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left column - Content */}
-            <motion.div
-              className="flex flex-col space-y-6"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 leading-tight">
-                  Launch Your Tech Career to New Heights
-                </h1>
-                <p className="text-xl md:text-2xl text-gray-700 font-medium">
-                  One platform. All the tools. Unlimited potential.
-                </p>
-              </div>
-
-              <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-indigo-100 space-y-4">
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Career Kit brings everything you need to succeed in your tech career journey. From technical interview preparation to resume building, job searching, and career planning.
-                </p>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Some Content to ve yapped here  </p>
-              </div>
-
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-6 h-auto rounded-lg shadow-md shadow-primary/20">
-                  Start Your Journey <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="lg" className="bg-white hover:bg-gray-50 font-medium px-8 py-6 h-auto rounded-lg border-gray-200">
-                  View Demo
-                </Button>
-              </div>
-            </motion.div>
-
-            {/* Right column - Illustration */}
-            <motion.div
-              className="relative hidden lg:block"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob"></div>
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
-              <div className="absolute top-40 -right-10 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-4000"></div>
-
-              <div className="relative p-8">
-                {/* Replace with actual illustration or image */}
-                <div className="w-full h-[500px] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                  <Image
-                    src="/logo.jpg"
-                    alt="Career growth illustration"
-                    fill
-                    className="object-fill"
-                    priority
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* How it works - Process steps */}
-        <div className="container px-4 md:px-6 mx-auto mt-20">
-          <motion.div
-            className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-indigo-100"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <div className="flex flex-col items-center mb-10 text-center">
-              <Badge className="mb-3 bg-primary/10 text-primary border-none px-3 py-1 text-sm">
-                How It Works
-              </Badge>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Your Path to Success in Four Simple Steps</h2>
-              <p className="text-gray-600 mt-2 max-w-2xl">
-                Our platform guides you through every step of your career journey with personalized recommendations
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
-              {[
-                {
-                  step: "01",
-                  title: "Assess Your Skills",
-                  description: "Take our assessment to identify your strengths and areas for improvement",
-                  icon: <Layers className="h-6 w-6 text-blue-500" />
-                },
-                {
-                  step: "02",
-                  title: "Build Your Portfolio",
-                  description: "Create an impressive resume and optimize it for applicant tracking systems",
-                  icon: <FileText className="h-6 w-6 text-green-500" />
-                },
-                {
-                  step: "03",
-                  title: "Practice & Prepare",
-                  description: "Master technical interviews with our extensive practice questions",
-                  icon: <Code className="h-6 w-6 text-amber-500" />
-                },
-                {
-                  step: "04",
-                  title: "Land Your Dream Job",
-                  description: "Apply with confidence and track your applications in one place",
-                  icon: <Briefcase className="h-6 w-6 text-purple-500" />
-                }
-              ].map((item, index) => (
-                <div key={index} className="relative outline-1 p-3 rounded-2xl">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 mb-4">
-                    {item.icon}
-                  </div>
-                  <div className="absolute top-0 right-0 -mt-2 -mr-2 bg-primary text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-800">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="w-full py-16 bg-gray-50">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <Badge className="mb-3 bg-primary/10 text-primary border-none px-3 py-1 text-sm">
-              Why Choose Us
-            </Badge>
-            <h2 className="text-3xl font-bold mb-4">We can help you Land Your Dream Jobs</h2>
-            <p className="text-gray-600 text-lg">
-              Career Kit combines cutting-edge technology with proven strategies to maximize your chances of success
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="border-none shadow-lg">
-                <CardHeader className="">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-full bg-primary/10 text-primary">
-                      {benefit.icon}
-                    </div>
-                    <CardTitle>{benefit.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </CardContent>
-              </Card>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden border-none bg-gradient-to-br from-indigo-900 via-primary to-blue-800 py-20 md:py-28">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -right-10 top-0 h-96 w-96 rounded-full bg-blue-600 opacity-20 blur-3xl"></div>
+          <div className="absolute -bottom-10 -left-10 h-96 w-96 rounded-full bg-indigo-600 opacity-20 blur-3xl"></div>
+          <div className="absolute grid grid-cols-12 gap-2 opacity-10 inset-0">
+            {Array.from({ length: 144 }).map((_, index) => (
+              <div key={index} className="h-6 w-6 rounded-full bg-white"></div>
             ))}
           </div>
-
-
         </div>
 
+        <div className="container relative px-4 md:px-6 mx-auto">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+            <motion.div
+              className="flex flex-col space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="inline-flex items-center space-x-2 justify-center rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur-sm">
+                <span className="flex h-2 w-2 rounded-full bg-green-400"></span>
+                <span>Your career journey starts here</span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white">
+                Unlock Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">Dream Career</span> With Confidence
+              </h1>
+
+              <p className="text-lg md:text-xl text-blue-100 max-w-[600px]">
+                Comprehensive tools to ace technical interviews, create standout resumes, and navigate your career path with AI-powered guidance.
+              </p>
+
+              <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 pt-4">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
+                  Get Started Free
+                </Button>
+                <Button size="lg" variant="outline" className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20">
+                  Login
+                </Button>
+              </div>
+
+              <div className="flex items-center pt-2 space-x-4 text-white/80">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="h-8 w-8 rounded-full border-2 border-blue-900 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-xs font-medium">
+                      {String.fromCharCode(64 + i)}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm">Join over <span className="font-bold">10,000+</span> professionals accelerating their careers</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/10 p-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-2xl"></div>
+                <div className="relative rounded-xl overflow-hidden">
+                  <Image
+                    src="/hero.png"
+                    alt="Career Kit Dashboard"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://placehold.co/600x400/0048b3/e0f2fe?text=Career+Kit+Dashboard";
+                    }}
+                  />
+                </div>
+                <div className="absolute -right-6 -bottom-6 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg p-3 shadow-lg transform rotate-3">
+                  <Trophy className="h-6 w-6 text-white" />
+                </div>
+              </div>
+
+              <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 bg-white rounded-xl shadow-xl p-4 max-w-[180px]">
+                <div className="flex items-center space-x-2 pb-2">
+                  <div className="h-3 w-3 bg-green-500 rounded-full"></div>
+                  <p className="text-xs font-medium text-green-600">Success Rate</p>
+                </div>
+                <p className="text-2xl font-bold">87%</p>
+                <p className="text-xs text-gray-500">higher interview success</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
+            <path fill="#ffffff" fillOpacity="1" d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,218.7C672,224,768,224,864,213.3C960,203,1056,181,1152,186.7C1248,192,1344,224,1392,240L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+        </div>
       </section>
 
+
+
       {/* Features Section */}
-      <section className="w-full py-16 md:py-24 bg-white">
+      <section className="w-full px-4 py-5 md:py-8 bg-white">
         <motion.div
           className="container px-4 md:px-6 mx-auto space-y-12"
           variants={containerVariants}
@@ -327,6 +253,45 @@ export default function HomePage() {
             ))}
           </div>
         </motion.div>
+      </section>
+
+
+
+
+      {/* Why Choose Us Section */}
+      <section className="w-full py-16 bg-gray-50">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <Badge className="mb-3 bg-primary/10 text-primary border-none px-3 py-1 text-sm">
+              Why Choose Us
+            </Badge>
+            <h2 className="text-3xl font-bold mb-4">We can help you Land Your Dream Jobs</h2>
+            <p className="text-gray-600 text-lg">
+              Career Kit combines cutting-edge technology with proven strategies to maximize your chances of success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 max-w-5xl mx-auto md:grid-cols-2 gap-3">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="border-none shadow-lg">
+                <CardHeader className="">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-full bg-primary/10 text-primary">
+                      {benefit.icon}
+                    </div>
+                    <CardTitle>{benefit.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+
+        </div>
+
       </section>
 
 
