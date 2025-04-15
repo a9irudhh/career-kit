@@ -54,6 +54,8 @@ Below are some snapshots showcasing the Career Kit platform:
 
 ![Career Roadmap](images/image(5).png)
 
+![Career Roadmap](images/image(6).png)
+
 
 
 
