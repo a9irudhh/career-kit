@@ -18,6 +18,15 @@ type User = {
   email: string
 }
 
+const links = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Roadmap", href: "/roadmap" },
+  { label: "Community", href: "/community" },
+  { label: "Code-Practice", href: "/codepractice" },
+  {label : "Career-Assistant", href: "/assistant" },
+  
+]
+
 export function Navbar() {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
@@ -46,7 +55,7 @@ export function Navbar() {
       const res = await fetch('/api/auth/logout', {
         method: 'POST',
       })
-      
+
       if (res.ok) {
         setUser(null)
         router.push('/login')
@@ -57,22 +66,31 @@ export function Navbar() {
   }
 
   return (
-    <nav className="border-b bg-white">
+    <nav className="border-b bg-white shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-xl font-bold">
-                Career Kit
+              <Link href="/" className="flex items-center space-x-2 text-2xl font-extrabold text-blue-700 tracking-tight hover:text-blue-900 transition-colors">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="8" fill="#2563EB" />
+                  <text x="16" y="22" textAnchor="middle" fontSize="16" fontWeight="bold" fill="white" fontFamily="Arial, sans-serif">C</text>
+                </svg>
+                <span>Career<span className="text-purple-700">Kit</span></span>
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link href="/" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                Home
-              </Link>
-              <Link href="/dashboard" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                Dashboard
-              </Link>
+              {
+                links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="border-transparent text-gray-900 hover:border-blue-300 hover:text-blue-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+
             </div>
           </div>
           <div className="flex items-center">
@@ -83,7 +101,7 @@ export function Navbar() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center">
                     <span className="mr-2">Welcome, {user.username}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><circle cx="12" cy="7" r="4" /><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" /></svg>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

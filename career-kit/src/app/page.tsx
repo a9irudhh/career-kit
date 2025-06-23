@@ -109,7 +109,7 @@ export default function HomePage() {
    
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden border-none bg-gradient-to-br from-indigo-900 via-primary to-blue-800 py-20 md:py-28">
+      <section className="relative overflow-hidden border-none bg-gradient-to-br from-indigo-900 via-primary to-blue-800 py-20 md:py-8">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -right-10 top-0 h-96 w-96 rounded-full bg-blue-600 opacity-20 blur-3xl"></div>
@@ -257,6 +257,25 @@ export default function HomePage() {
 
 
 
+      {/* CTA Section */}
+      <section className="w-3/4 mx-auto rounded-4xl shadow-sm mb-5 py-12 md:py-24 lg:py-32 bg-gradient-to-br from-primary/90 to-primary">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="inline-flex items-center justify-center p-2 bg-white/10 rounded-lg">
+              <Sparkles className="h-6 w-6 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Ready to Accelerate Your Career?</h2>
+            <p className="max-w-[900px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Join thousands of professionals who are achieving their career goals with our platform.
+            </p>
+            <Button className="bg-white text-primary hover:bg-white/90">
+              Get Started Now
+            </Button>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* Why Choose Us Section */}
       <section className="w-full py-16 bg-gray-50">
@@ -295,23 +314,6 @@ export default function HomePage() {
       </section>
 
 
-      {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-primary/90 to-primary">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-flex items-center justify-center p-2 bg-white/10 rounded-lg">
-              <Sparkles className="h-6 w-6 text-white" />
-            </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Ready to Accelerate Your Career?</h2>
-            <p className="max-w-[900px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Join thousands of professionals who are achieving their career goals with our platform.
-            </p>
-            <Button className="bg-white text-primary hover:bg-white/90">
-              Get Started Now
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="w-full py-6 bg-gray-900 text-white">
