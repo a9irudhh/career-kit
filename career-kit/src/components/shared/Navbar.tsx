@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { useRouter } from 'next/navigation'
 
+
 type User = {
   username: string
   email: string
@@ -20,11 +21,12 @@ type User = {
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
+  { label: "Resume Builder", href: "/resume" },
+  { label: "Code Practice", href: "/codepractice" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "Community", href: "/community" },
-  { label: "Code-Practice", href: "/codepractice" },
-  {label : "Career-Assistant", href: "/assistant" },
-  
+  { label: "Career Assistant", href: "/assistant" },
+
 ]
 
 export function Navbar() {
@@ -70,6 +72,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
+
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center space-x-2 text-2xl font-extrabold text-blue-700 tracking-tight hover:text-blue-900 transition-colors">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
@@ -92,15 +95,36 @@ export function Navbar() {
                 ))}
 
             </div>
+
+
           </div>
-          <div className="flex items-center">
+
+          <div className="flex items-center"> 
+
+          <div className='sm:hidden lg:hidden flex items-center'>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {links.map((link) => (
+                  <DropdownMenuItem key={link.href}>
+                    <Link href={link.href} className="w-full">{link.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
             {loading ? (
               <div className="animate-pulse w-24 h-8 bg-gray-200 rounded"></div>
             ) : user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center">
-                    <span className="mr-2">Welcome, {user.username}</span>
+                    <span className="mr-2 hidden md:block sm:block ">Welcome, {user.username}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><circle cx="12" cy="7" r="4" /><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" /></svg>
                   </Button>
                 </DropdownMenuTrigger>

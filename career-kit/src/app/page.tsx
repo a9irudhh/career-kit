@@ -31,10 +31,6 @@ export default function HomePage() {
     visible: { y: 0, opacity: 1 }
   };
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.6 } }
-  };
 
   const features = [
     {
@@ -142,13 +138,22 @@ export default function HomePage() {
                 Comprehensive tools to ace technical interviews, create standout resumes, and navigate your career path with AI-powered guidance.
               </p>
 
-              <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 pt-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                  Get Started Free
-                </Button>
-                <Button size="lg" variant="outline" className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20">
-                  Login
-                </Button>
+              <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 pt-4 z-10">
+                <Link href="/register" passHref legacyBehavior>
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
+                    Get Started Free
+                  </Button>
+                </Link>
+
+                <Link href="/dashboard" passHref legacyBehavior>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20"
+                  >
+                    Dashboard
+                  </Button>
+                </Link>
               </div>
 
               <div className="flex items-center pt-2 space-x-4 text-white/80">
@@ -164,19 +169,19 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div
-              className="relative hidden lg:block"
+              className="relative hidden lg:block "
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/10 p-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-2xl"></div>
-                <div className="relative rounded-xl overflow-hidden">
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl shadow-2xl border  border-white/10 p-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-2xl "></div>
+                <div className="relative rounded-xl overflow-hidden ">
                   <Image
                     src="/hero.png"
                     alt="Career Kit Dashboard"
-                    width={600}
-                    height={400}
+                    width={200}
+                    height={200}
                     className="w-full h-auto object-cover"
                     onError={(e) => {
                       e.currentTarget.src = "https://placehold.co/600x400/0048b3/e0f2fe?text=Career+Kit+Dashboard";
@@ -274,8 +279,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
 
       {/* Why Choose Us Section */}
       <section className="w-full py-16 bg-gray-50">
