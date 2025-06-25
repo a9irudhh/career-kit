@@ -50,6 +50,44 @@ const RoadmapGenerator = () => {
         }
     };
 
+    
+// Add this new function after handleSubmit
+const handleSaveToDatabase = async () => {
+    if (!generatedRoadmap) return;
+    
+    setIsLoading(true);
+    
+    try {
+        const response = await fetch('/api/roadmaps', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                jobTitle,
+                level,
+                timeRange: isCustomTime ? `CUSTOM-${customTime}` : timeRange,
+                roadmapContent: generatedRoadmap,
+                createdAt: new Date().toISOString(),
+            }),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Roadmap saved successfully:', result);
+            // You can add a success notification here
+            alert('Roadmap saved successfully!');
+        } else {
+            throw new Error('Failed to save roadmap');
+        }
+    } catch (error) {
+        console.error('Error saving roadmap:', error);
+        alert('Failed to save roadmap. Please try again.');
+    } finally {
+        setIsLoading(false);
+    }
+};
+
     return (
         <div className="container mx-auto py-8 max-w-5xl">
             {/* Existing header and feature sections remain unchanged */}
@@ -192,10 +230,30 @@ const RoadmapGenerator = () => {
             {/* The rest of your component remains unchanged */}
             {generatedRoadmap && (
                 <div>
-                    <div className="mb-6 flex items-center">
-                        <div className="mr-3 h-10 w-1 bg-blue-600"></div>
-                        <h2 className="text-2xl font-bold text-gray-800">Your Career Roadmap</h2>
-                    </div>
+
+        <div className="mb-6 flex items-center justify-between">
+            <div className="flex items-center">
+                <div className="mr-3 h-10 w-1 bg-blue-600"></div>
+                <h2 className="text-2xl font-bold text-gray-800">Your Career Roadmap</h2>
+            </div>
+            <Button
+                onClick={handleSaveToDatabase}
+                disabled={isLoading}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+            >
+                {isLoading ? (
+                    <>
+                        <Clock className="mr-2 h-4 w-4 animate-spin" />
+                        Saving...
+                    </>
+                ) : (
+                    <>
+                        <BookOpen className="mr-2 h-4 w-4" />
+                        Save to Library
+                    </>
+                )}
+            </Button>
+        </div>
                     
                     <Tabs defaultValue="roadmap" className="mb-10">
                         <TabsList className="mb-4 w-full sm:w-auto">

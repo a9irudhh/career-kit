@@ -213,7 +213,7 @@ export default function CommunityForum() {
           {isLoggedIn && (
             <Button
               asChild
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-200"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-200 self-end"
             >
               <Link href="/community/create">
                 <PlusCircle className="mr-2 h-4 w-4" />
@@ -305,7 +305,7 @@ export default function CommunityForum() {
         </Card>
 
         {/* Post Navigation */}
-        <div className="flex flex-col md:flex-row justify-between mb-6 gap-4">
+        <div className="flex flex-col md:flex-row justify-between mb-6 gap-4 overflow-x-auto">
           <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
             <TabsList className="mb-4 bg-white border border-gray-200 shadow-sm p-1">
               <TabsTrigger value="all" className="data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700">
@@ -330,36 +330,37 @@ export default function CommunityForum() {
               </TabsTrigger>
             </TabsList>
           </Tabs>
+        </div>
 
-          <div className="flex items-center justify-end">
-            <label className="text-sm text-gray-500 mr-2 whitespace-nowrap">Sort by:</label>
-            <Select value={sortOption} onValueChange={setSortOption}>
-              <SelectTrigger className="w-40 border-gray-300">
-                <SelectValue placeholder="Latest" />
-              </SelectTrigger>
-              <SelectContent align="end">
-                <SelectItem value="latest">
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 mr-2" />
-                    Latest
-                  </div>
-                </SelectItem>
-                <SelectItem value="popular">
-                  <div className="flex items-center">
-                    {/* Changed from FireExtinguisherIcon to Fire */}
-                    <PowerCircle className="h-4 w-4 mr-2" />
-                    Popular
-                  </div>
-                </SelectItem>
-                <SelectItem value="alphabetical">
-                  <div className="flex items-center">
-                    <ArrowDownAZ className="h-4 w-4 mr-2" />
-                    A-Z
-                  </div>
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+
+        <div className="flex items-center justify-end self-start mb-4">
+          <label className="text-sm text-gray-500 mr-2 whitespace-nowrap">Sort by:</label>
+          <Select value={sortOption} onValueChange={setSortOption}>
+            <SelectTrigger className="w-40 border-gray-300">
+              <SelectValue placeholder="Latest" />
+            </SelectTrigger>
+            <SelectContent align="end">
+              <SelectItem value="latest">
+                <div className="flex items-center">
+                  <Clock className="h-4 w-4 mr-2" />
+                  Latest
+                </div>
+              </SelectItem>
+              <SelectItem value="popular">
+                <div className="flex items-center">
+                  {/* Changed from FireExtinguisherIcon to Fire */}
+                  <PowerCircle className="h-4 w-4 mr-2" />
+                  Popular
+                </div>
+              </SelectItem>
+              <SelectItem value="alphabetical">
+                <div className="flex items-center">
+                  <ArrowDownAZ className="h-4 w-4 mr-2" />
+                  A-Z
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         {/* Rest of your component remains unchanged */}
